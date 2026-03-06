@@ -22,7 +22,7 @@ async function mergePdfs(files) {
     for (const page of copiedPages) {
         mergedPdf.addPage(page);
     }
-    console.log(pdfDoc.getPageIndices());
+
 
   }
   
@@ -45,6 +45,7 @@ mergeBtn.addEventListener('click', async () => {
     finally {
         mergeBtn.disabled = false;
         mergeBtn.textContent = "Merge PDFs";
+
     }
 })
 
@@ -59,14 +60,23 @@ document.getElementById('files').addEventListener('change', () => {
     fileList.appendChild(div);
 
 })
-console.log(dynamicFiles);
+    if (dynamicFiles.length > 0) {
+        mergeBtn.disabled = false;
+        mergeBtn.title = "";
+    }
+    else {
+        mergeBtn.disabled = true;
+        mergeBtn.title = "You must select your PDFs before you can merge!";
+    }
+    
+
     Sortable.create(fileList, { animation: 150, onUpdate: function(evt) {
 
         
         //[dynamicFiles[evt.oldIndex], dynamicFiles[evt.newIndex]] = [dynamicFiles[evt.newIndex], dynamicFiles[evt.oldIndex]];
         const [moved] = dynamicFiles.splice(evt.oldIndex, 1);
         dynamicFiles.splice(evt.newIndex, 0, moved);
-        console.log(dynamicFiles);
+
 
     } });
 })

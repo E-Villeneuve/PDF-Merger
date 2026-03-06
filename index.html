@@ -4,16 +4,37 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/merger.css">
     <script type="module" src="/src/merger.js"></script>
     <title>PDF Merger</title>
   </head>
   <body>
-    <input id="files" type="file" multiple accept="application/pdf">
-    <div id="fileList" class="list-group"></div>
+    <div class="app">
+      <div class="controls">
+        <h1>PDF Merger</h1>
+        <div class="lead">Select and reorder PDFs, then merge.</div>
+        <input id="files" type="file" multiple accept="application/pdf">
+        <button id="mergeBtn" disabled="true" title="You must select your PDFs before you can merge!">Merge PDFs</button>
+        <p class="small">(Your browser will download the resulting file)</p>
+      </div>
 
-    <p>Click the button to create a new PDF document with <code>pdf-lib</code></p>
-    <button id="mergeBtn">Merge PDFs</button>
-    <p class="small">(Your browser will download the resulting file)</p>
+
+      <div class="panel">
+        <div id="fileList" class="list-group"></div>
+      </div>
+
+      <div class="about">
+        <h3>About</h3>
+        <p id ="description">This is a lightweight website designed to allow users to combine multiple PDFs into a single file, without the requirement to upload to some dubious server with questionable privacy protocols.
+          Everything is handled in-browser, with nothing stored on the server side.
+          <br>
+          <br>
+          If still skeptical, disconnect from the Internet while on this page; the merger will remain perfectly functional!
+        </p>
+      </div>
+      
+    
+    </div>
   </body>
 
   
