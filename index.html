@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/src/merger.js"></script>
+    <title>PDF Merger</title>
+  </head>
+  <body>
+    <input id="files" type="file" multiple accept="application/pdf">
+    <div id="fileList" class="list-group"></div>
+
+    <p>Click the button to create a new PDF document with <code>pdf-lib</code></p>
+    <button id="mergeBtn">Merge PDFs</button>
+    <p class="small">(Your browser will download the resulting file)</p>
+  </body>
+
+  
+</html>
